@@ -9,38 +9,39 @@ import io.cucumber.java.en.When;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.interactions.Actions;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Set;
 
 public class TeacherLoginSteps {
     Objects objects=new Objects();
+    Actions actions = new Actions(GWD.getDriver());
 
-    @Given("Navigate to Campus")
-    public void navigateToCampus() {
-        GWD.getDriver().get("https://test.mersys.io/");
+
+
+
+
+
+
+
+    @When("Go to the Academy and click Traning and Dates")
+    public void goToTheAcademyAndClickTraningAndDates() {
+        actions.moveToElement(objects.academy).perform();
+    //    objects.scrollToElement(objects.academy);
+        objects.clickFunction(objects.training);
+
     }
 
-    @When("Enter valid teacher username and password then click login button")
-    public void enterValidTeacherUsernameAndPasswordThenClickLoginButton() throws IOException {
-        String path="src/test/java/ExcelData/Campus_Data.xlsx";
+    @Given("Navigate to Imbus")
+    public void navigateToImbus() {
+        GWD.getDriver().get("https://www.imbus.de/en/");
+        objects.clickFunction(objects.cookies);
 
-        FileInputStream inputStream=new FileInputStream(path);
-        Workbook workbook= WorkbookFactory.create(inputStream);
-        Sheet sheet=workbook.getSheetAt(0);
 
-        String username=String.valueOf(sheet.getRow(1).getCell(0));
-        String password= String.valueOf(sheet.getRow(1).getCell(1));
-
-        objects.sendKeysFunction(objects.username,username);
-        objects.sendKeysFunction(objects.password,password);
-        objects.clickFunction(objects.loginButton);
     }
-
-    @Then("User should login successfully")
-    public void userShouldLoginSuccessfully() {
-        objects.verifyContainsTextFunction(objects.textTechnoStudy,"Techno Study");
-    }
-
 }
+

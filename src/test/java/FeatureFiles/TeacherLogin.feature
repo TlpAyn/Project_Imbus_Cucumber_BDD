@@ -1,7 +1,6 @@
-Feature: Teacher Login Functionality
+Feature: Training Functionality
 
-  Scenario: Teacher Login Functionality
+  Scenario: Training Functionality
 
-    Given Navigate to Campus
-    When Enter valid teacher username and password then click login button
-    Then User should login successfully
+    Given Navigate to Imbus
+    When  Go to the Academy and click Traning and Dates

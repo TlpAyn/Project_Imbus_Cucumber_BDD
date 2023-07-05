@@ -24,6 +24,13 @@ public class Objects extends Parent {
     public WebElement textTechnoStudy;
     @FindBy(css = "button[aria-label='LOGIN']")
     public WebElement loginButton;
+    @FindBy(linkText = "Academy")
+    public WebElement academy;
+    @FindBy(linkText = "Training and Dates")
+    public WebElement training;
+    @FindBy(linkText = "allow all cookies")
+    public WebElement cookies;
+
 
 
 
