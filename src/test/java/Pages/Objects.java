@@ -30,6 +30,20 @@ public class Objects extends Parent {
     public WebElement training;
     @FindBy(linkText = "allow all cookies")
     public WebElement cookies;
+    @FindBy(linkText = "ISTQB® Certified Tester AI Testing")
+    public WebElement aiTestingText;
+    @FindBy(linkText = "Contact")
+    public WebElement contact;
+
+    @FindBy(xpath = "(//a[text()='ISTQB® Certified Tester AI Testing'])[2]")
+    public WebElement aiTestingXTextt;
+    @FindBy(xpath = "(//a[text()='details & dates'])[2]")
+    public WebElement deneme;
+    @FindBy(xpath = "//a[text()='details & dates']")
+    public WebElement aiTestingDetails;
+    @FindBy(tagName = "h1")
+    public WebElement title;
+
 
 
 
